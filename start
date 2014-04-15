@@ -8,19 +8,34 @@
   <body>
 
     <script>
+      Chat.guide.start();
 
+      // Your JavaScript code will go right here!
+      // $("ul li:first")   Selects the first <li> element of the first <ul>
 
     /*Chat.fetch takes a function(callback) 
       Chat.fetch passes an array or strings to the callback
       loop through the array in the call back and pass each string to Chat.display
       loop ex for(var i= ;  arr.length; var++ or var--)
     */
+     
 
-    Chat.fetch(function(arr)){
-      for(var i = 0; i < arr.length; i++){
-        Chat.display(arr[i]);
-      }
-    });
+
+
+     //this section hooks Chat.fetch and Chat.display, and refreshes the list---NEEDS WORK!! 
+      var refresh = function() {
+        Chat.fetch(function(arr) {
+          for(var i = 0; i < arr.length; i++){
+            Chat.display(arr[i]);
+            };
+        });
+      };
+
+      setInterval("refresh()", 3000);
+      
+
+
+      // Your JavaScript code will go right here!
 
 
       /*
@@ -47,14 +62,12 @@
        *  hard to build this material and publishing solutions diminishes its effectiveness.
        */
 
-      Chat.guide.start();
-
-      // Your JavaScript code will go right here!
+      
     </script>
 
     <h2>Broken Chat</h2>
 
-    <input class="draft" type="text"/> <button class="send" disabled>Send</button>
+    <input class="draft" type="text"/> <button class="send" >Send</button>
 
     <ul class="messages">
       <!-- li messages go in here as they are pushed from chat.display
